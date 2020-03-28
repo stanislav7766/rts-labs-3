@@ -16,8 +16,8 @@
 Щодо 3.1 (ФАКТОРИЗАЦІЯ ЧИСЛА)<br/>
 алгоритм знаходиться у rts-labs-3/src/utils/factorization.js -> fermatsFactorizator<br/>
 скріни роботи:<br/>
-![Optional Text](../master/screenshots/31/1.png)
-![Optional Text](../master/screenshots/31/2.png)
+<img src='screenshots/31/1.png' width="300px"></img>
+<img src='screenshots/31/2.png' width="300px"></img>
 
 Щодо 3.2 (ДОСЛІДЖЕННЯ НЕЙРОННИХ МЕРЕЖ)<br/>
 алгоритм знаходиться у rts-labs/src/utils/perceptron.js -> calcPerceptron<br/>
