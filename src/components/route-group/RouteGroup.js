@@ -12,7 +12,7 @@ const RouteGroup = ({marginTop, navigator}) => {
       <Btn flex={1} backgroundColor={PINK} onPress={() => onPressNavigator('Landing')} textColor="white" title="Home" />
       <Btn flex={1} backgroundColor={PINK} onPress={() => onPressNavigator('Lab31')} textColor="white" title="Lab31" />
       <Btn flex={1} backgroundColor={PINK} onPress={() => onPressNavigator('Lab32')} textColor="white" title="Lab32" />
-      <Btn flex={1} backgroundColor={PINK} onPress={() => onPressNavigator('Lab31')} textColor="white" title="Lab33" />
+      <Btn flex={1} backgroundColor={PINK} onPress={() => onPressNavigator('Lab33')} textColor="white" title="Lab33" />
     </ButtonGroup>
   );
 };

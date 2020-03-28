@@ -60,9 +60,9 @@ const Lab32 = ({navigator}) => {
     <Container>
       <RouteGroup marginTop={50} navigator={navigator} />
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Title fontSize="45px">Лабораторна робота 3.2</Title>
-        <Title marginTop="10px">ДОСЛІДЖЕННЯ НЕЙРОННИХ МЕРЕЖ. МОДЕЛЬ PERCEPTRON</Title>
-        <Title marginTop="20px" color="black">{`Перша координата < P `}</Title>
+        <Title fontSize={45}>Лабораторна робота 3.2</Title>
+        <Title marginTop={10}>ДОСЛІДЖЕННЯ НЕЙРОННИХ МЕРЕЖ. МОДЕЛЬ PERCEPTRON</Title>
+        <Title marginTop={20} color="black">{`Перша координата < P `}</Title>
         <Row>
           <Input
             minWidth={120}
@@ -79,7 +79,7 @@ const Lab32 = ({navigator}) => {
             placeholder="Введіть y1"
           />
         </Row>
-        <Title marginTop="10px" color="black">{`Друга координата > P `}</Title>
+        <Title marginTop={10} color="black">{`Друга координата > P `}</Title>
 
         <Row>
           <Input

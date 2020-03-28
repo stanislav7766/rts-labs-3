@@ -13,10 +13,6 @@ export const Title = styled.Text`
   margin-top: ${props => props.marginTop || '0'}px;
 `;
 
-export const Error = styled.Text`
-  text-align: center;
-  color: red;
-`;
 export const Row = styled.View`
   flex-direction: row;
 `;

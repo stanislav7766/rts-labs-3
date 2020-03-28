@@ -39,3 +39,12 @@ export const perceptronValid = (data, errors = {}) => {
   (isEmpty(data.sigma) || isEmpty(data.time) || isEmpty(data.iters)) && (errors.pickers = `Ці поля обовязкові`);
   return {isValid: isEmpty(errors), errors};
 };
+
+export const geneticValid = (data, errors = {}) => {
+  !isNumeric(data.a) && (errors.a = NUMERIC_REQUIRED);
+  !isNumeric(data.b) && (errors.b = NUMERIC_REQUIRED);
+  !isNumeric(data.c) && (errors.c = NUMERIC_REQUIRED);
+  !isNumeric(data.d) && (errors.d = NUMERIC_REQUIRED);
+  !isNumeric(data.y) && (errors.y = NUMERIC_REQUIRED);
+  return {isValid: isEmpty(errors), errors};
+};

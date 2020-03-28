@@ -1,5 +1,4 @@
-const smallerEq = (a, b) => a < b || a === b;
-const isSquare = n => n > 0 && Math.ceil(Math.sqrt(n)) ** 2 === n;
+import {isSquare, smallerEq} from './mathFunctions';
 
 const fermatsFactorizator = n => {
   if (n === 1) return {x: 1, y: 1};
