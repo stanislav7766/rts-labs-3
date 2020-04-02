@@ -60,9 +60,10 @@ const getChromosomeNumberForThisRand = rand => {
 
 const getPairsForCrossover = () => {
   const pairs = Array2D(POPULATION_COUNT, 2);
+  let rand = getRandomFloat(0, 100);
 
   for (let i = 0; i < POPULATION_COUNT; ++i) {
-    let rand = getRandomFloat(0, 100);
+    rand = getRandomFloat(0, 100);
     const firstChromosome = getChromosomeNumberForThisRand(rand);
     let secondChromosome;
     do {
@@ -74,7 +75,7 @@ const getPairsForCrossover = () => {
     pairs[i][1] = secondChromosome;
   }
 
-  return pairs;
+  return [pairs, rand];
 };
 //perform crossover; mutation for population; GetNextGeneration
 const getNextGeneration = pairs => {
@@ -89,17 +90,19 @@ const getNextGeneration = pairs => {
 };
 
 export const calcGenetic = coeffs => {
+  let optimalPercent = 0;
   setGeneMax(coeffs.y);
   createInitialPopulation();
   for (let iters = 0; iters < MAX_ITERATIONS; iters++) {
     const ind = fillChromosomesWithFitnesses(coeffs);
 
     if (ind != TARGET_NOT_REACHED_FLAG) {
-      return [population[ind].toString(), ''];
+      return [`${population[ind].toString()} Оптимальний відсоток: ${optimalPercent.toFixed(2)}`, ''];
     }
 
     fillChromosomeWithLikelihoods();
-    const pairs = getPairsForCrossover();
+    const [pairs, percent] = getPairsForCrossover();
+    optimalPercent = percent;
     const nextGeneration = getNextGeneration(pairs);
     setPopulation(nextGeneration);
   }
