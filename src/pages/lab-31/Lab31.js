@@ -12,7 +12,7 @@ import {factorizeValid} from '../../utils/validation';
 const Lab31 = ({navigator}) => {
   const [showModal, setShowModal] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [factorized, setFactorized] = useState({});
+  const [factorized, setFactorized] = useState('');
   const [errors, setErrors] = useState({});
 
   const onPress = () => {
@@ -20,7 +20,8 @@ const Lab31 = ({navigator}) => {
 
     if (isValid) {
       setErrors({});
-      setFactorized(fermatsFactorizator(Number(inputValue)));
+      const [res, errStr] = fermatsFactorizator(Number(inputValue));
+      errStr === '' ? setFactorized(`${inputValue} = ${res.x} * ${res.y}`) : setFactorized(errStr);
       setShowModal(true);
     } else setErrors(errors);
   };
@@ -45,11 +46,7 @@ const Lab31 = ({navigator}) => {
       </XYCenter>
       <View style={{opacity: 0}}>
         {showModal && (
-          <ResultModal
-            showModal={showModal}
-            setShowModal={setShowModal}
-            text={`Результат: ${inputValue} = ${factorized.x} * ${factorized.y}`}
-          />
+          <ResultModal showModal={showModal} setShowModal={setShowModal} text={`Результат:  ${factorized}`} />
         )}
       </View>
     </Container>
