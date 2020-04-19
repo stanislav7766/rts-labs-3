@@ -9,7 +9,7 @@ const GENE_MIN = 1;
 let GENE_MAX;
 const MAX_ITERATIONS = 10000;
 
-const setGeneMax = y => {
+const setGeneMax = (y) => {
   GENE_MAX = y >= 10 ? Math.floor(y / 10) : y;
 };
 let population = new Array(POPULATION_COUNT);
@@ -22,9 +22,9 @@ const createInitialPopulation = () => {
     population[i].getGenes()[i] = getRandomGene();
   }
 };
-const setPopulation = _population => (population = _population);
+const setPopulation = (_population) => (population = _population);
 
-const fillChromosomesWithFitnesses = coeffs => {
+const fillChromosomesWithFitnesses = (coeffs) => {
   for (let i = 0; i < POPULATION_COUNT; ++i) {
     const currentFitness = population[i].calculateFitness(coeffs);
     population[i].setFitness(currentFitness);
@@ -34,7 +34,8 @@ const fillChromosomesWithFitnesses = coeffs => {
 };
 const getAllFitnessesSum = () => {
   let allFitnessesSum = 0;
-  for (let i = 0; i < POPULATION_COUNT; ++i) allFitnessesSum += population[i].getFitness();
+  for (let i = 0; i < POPULATION_COUNT; ++i)
+    allFitnessesSum += population[i].getFitness();
 
   return allFitnessesSum;
 };
@@ -43,12 +44,13 @@ const fillChromosomeWithLikelihoods = () => {
   let last = 0;
   let i;
   for (i = 0; i < POPULATION_COUNT; ++i) {
-    const likelihood = last + (100 * population[i].getFitness()) / allFitnessesSum;
+    const likelihood =
+      last + (100 * population[i].getFitness()) / allFitnessesSum;
     last = likelihood;
     population[i].setLikelihood(likelihood);
   }
 };
-const getChromosomeNumberForThisRand = rand => {
+const getChromosomeNumberForThisRand = (rand) => {
   let i;
   for (i = 0; i < POPULATION_COUNT; ++i) {
     if (rand <= population[i].getLikelihood()) {
@@ -78,7 +80,7 @@ const getPairsForCrossover = () => {
   return [pairs, rand];
 };
 //perform crossover; mutation for population; GetNextGeneration
-const getNextGeneration = pairs => {
+const getNextGeneration = (pairs) => {
   const nextGeneration = new Array(POPULATION_COUNT);
   for (let i = 0; i < POPULATION_COUNT; ++i) {
     const firstParent = population[pairs[i][0]];
@@ -89,7 +91,7 @@ const getNextGeneration = pairs => {
   return nextGeneration;
 };
 
-export const calcGenetic = coeffs => {
+export const calcGenetic = (coeffs) => {
   let optimalPercent = 0;
   setGeneMax(coeffs.y);
   createInitialPopulation();
@@ -97,7 +99,12 @@ export const calcGenetic = coeffs => {
     const ind = fillChromosomesWithFitnesses(coeffs);
 
     if (ind != TARGET_NOT_REACHED_FLAG) {
-      return [`${population[ind].toString()} Оптимальний відсоток: ${optimalPercent.toFixed(2)}`, ''];
+      return [
+        `${population[
+          ind
+        ].toString()} Оптимальний відсоток: ${optimalPercent.toFixed(2)}`,
+        '',
+      ];
     }
 
     fillChromosomeWithLikelihoods();
