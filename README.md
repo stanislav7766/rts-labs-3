@@ -5,7 +5,7 @@
 
 За бажанням можно перевірити виконання роботи 2 шляхами: <br />
 
-1. завантажити та встановити на андроид-пристрій апк - <a href="https://drive.google.com/file/d/10R7YIlI3fiHyV-kAIajIfKwKNahvz3EL/view?usp=drivesdk">tap</a>
+1. завантажити та встановити на андроид-пристрій апк - <a href="https://drive.google.com/file/d/1-H5R9PCofFxeXTC8LrjfCqM00Yhxn44S/view">tap</a>
 2. Зклонити репу(повинен бути встановлений yarn та react-native) && перейти до кореню директорії && yarn install && yarn start && yarn android <br /> запуститься емулятор(якщо він також встановлений)
 
 Статус робіт: <br/>
